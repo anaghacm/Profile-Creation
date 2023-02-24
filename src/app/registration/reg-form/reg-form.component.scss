@@ -1,0 +1,117 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.forms-module {
+    padding: $spacer-3 $spacer-4;
+
+    .heading {
+        font-size: $font-xl;
+        color: $color-primary;
+        font-weight: 700;
+        text-align: center;
+        line-height: 36px;
+        padding-top: $spacer-2;
+
+        .sub-head {
+            font-size: $font-md;
+            font-weight: 400;
+        }
+    }
+
+    .reg-form {
+        display: flex;
+        flex-wrap: wrap;
+        padding: $spacer-0 $spacer-3;
+    }
+
+    .input-div {
+        width: 100%;
+        height: 78px;
+        padding: $spacer-1;
+        padding-top: $spacer-0;
+
+        &.half-div {
+            width: 50%;
+        }
+    }
+
+    .form-control {
+        border-radius: 50px;
+        font-size: $font-sm;
+        padding-left: $spacer-2;
+        color: $color-white;
+        background-color: $color-primary;
+
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &::placeholder {
+            font-size: $font-xsm;
+            font-weight: 300;
+            font-style: italic;
+            color: $color-letters;
+        }
+    }
+    .input-pass{
+        position: relative;
+        .toggle-btn{
+            position: absolute;
+            right: 25px;
+            top: 35px;
+            color: $color-letters;
+            font-size: $font-sm;
+        }
+    }
+    .input-label {
+        font-size: $font-xsm;
+        color: $color-primary;
+        position: relative;
+
+        &::after {
+            content: '\00a0 *';
+            position: absolute;
+            color: red;
+        }
+    }
+
+    .warning-message {
+        color: red;
+        font-size: $font-xsm;
+        padding-left: $spacer-2;
+    }
+
+    .btn-div {
+        text-align: center;
+        width: 100%;
+        margin-top: $spacer-2;
+    }
+
+    .btn-submit {
+        background-color: $color-contrasting;
+        color: $color-primary;
+        padding: $spacer-md $spacer-4;
+        border-radius: 50px;
+        transition: all 0.5s;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-contrasting;
+        }
+    }
+}
+
+@include mobile{
+    .forms-module{
+        .reg-form{
+            padding: $spacer-0;
+        }
+        .input-div{
+            padding: $spacer-0;
+            &.half-div{
+                width: 100%;
+            }
+        }
+    }
+}

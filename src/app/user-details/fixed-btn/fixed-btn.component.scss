@@ -1,0 +1,18 @@
+@import '../../../assets/scss/variables';
+
+.fixed-div{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 11;
+    
+    .fixed-redirection{
+        font-size: 40px;
+        color: $color-primary;
+        transition: all 0.8s;
+
+        &:hover{
+            color: $color-contrasting;
+        }
+    }
+}

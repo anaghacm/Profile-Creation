@@ -1,0 +1,56 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.formbase-module {
+    margin: auto;
+
+    .img-base{
+        padding: $spacer-0 150px;
+        display: flex;
+        align-items: center;
+    }
+    .img-div {
+        height: 500px;
+        background-image: linear-gradient(rgba(4,103,135, 0.75), rgba(4,103,135, 0.75)), url('../../../assets/images/register.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: $spacer-0 $spacer-4 $spacer-2;
+        color: $color-white;
+        font-size: $font-xsm;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .main-head {
+        font-size: $font-xxl;
+        font-weight: 700;
+        line-height: 36px;
+        padding-bottom: $spacer-2;
+    }
+
+    .sub-head {
+        font-size: $font-xl;
+        color: $color-contrasting;
+        font-weight: 600;
+        padding-bottom: $spacer-1;
+    }
+
+    .content {
+        font-weight: 300;
+    }
+
+    .form-div{
+        background-color: $color-letters;
+    }
+}
+
+@include tablet{
+    .formbase-module{
+        .img-base{
+            padding: 100px $spacer-4;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+<section class="forms-module">
+    <div class="heading">
+        <p>Register your details!</p>
+        <p class="sub-head">Personal Information</p>
+    </div>
+    <div class="form-div">
+        <form class="reg-form" [formGroup]="secondForm" (ngSubmit)="submitPersonalData()">
+            <div class="input-div">
+                <label class="input-label" for="age">Age</label>
+                <input class="form-control" type="text" pattern="^[0-9]{2}$" name="age" formControlName="age"
+                    placeholder="your age">
+                <small class="warning-message"
+                    *ngIf="this.secondForm.get('age')?.touched && this.secondForm.get('age')?.invalid">Please enter valid
+                    age</small>
+            </div>
+            <div class="input-div">
+                <label class="input-label" for="address">Address</label>
+                <input class="form-control" maxlength="50" type="text" name="address"
+                    formControlName="address" placeholder="your address">
+                <small class="warning-message"
+                    *ngIf="this.secondForm.get('address')?.touched && this.secondForm.get('address')?.invalid">Address
+                    field is required</small>
+            </div>
+
+            <div class="input-div">
+                <label class="input-label" for="education">Education</label>
+                <input class="form-control" type="text" name="education"
+                    formControlName="education" placeholder="your highest qualification">
+                <small class="warning-message"
+                    *ngIf="this.secondForm.get('education')?.touched && this.secondForm.get('education')?.invalid">Education
+                    field is required</small>
+            </div>
+            <div class="half-div input-div">
+                <label class="input-label" for="country">Country</label>
+                <select class="form-select" aria-label="Default select example" name="country" formControlName="country">
+                    <option selected>--Select Country--</option>
+                    <option *ngFor="let country of countryList">{{country.name}}</option>
+                </select>
+                <small class="warning-message"
+                    *ngIf="this.secondForm.get('country')?.touched && this.secondForm.get('country')?.invalid">Please select a country</small>
+            </div>
+            <div class="half-div input-div">
+                <label class="input-label" for="state">State</label>
+                <select class="form-select" aria-label="Default select example" name="state" formControlName="state">
+                    <option [selected]="true">--Select State--</option>
+                    <option *ngFor="let state of stateList">{{state.name}}</option>
+                </select>
+                <small class="warning-message"
+                    *ngIf="this.secondForm.get('state')?.touched && this.secondForm.get('state')?.invalid">Please select a state</small>
+            </div>
+            <div class="input-div">
+                <label class="input-label" for="message">Message</label>
+                <input class="form-control" type="text" maxlength="15" name="message" formControlName="message"
+                    placeholder="leave your message here">
+                <small class="warning-message"
+                    *ngIf="this.secondForm.get('message')?.touched && this.secondForm.get('message')?.invalid">Mesaage field is required</small>
+            </div>
+
+            <div class="btn-div">
+                <button type="submit" class="btn btn-submit">Submit <i class="fa-solid fa-circle-play"></i></button>
+            </div>
+        </form>
+    </div>
+</section>

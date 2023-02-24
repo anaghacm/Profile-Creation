@@ -1,0 +1,48 @@
+<section class="forms-module">
+    <div class="heading">
+        <p>Register your details!</p>
+        <p class="sub-head">General Information</p>
+    </div>
+    <div class="form-div">
+        <form class="reg-form" [formGroup]="registrationForm" (ngSubmit)="submitData()">
+            <div class="half-div input-div">
+                <label class="input-label" for="firstname">First Name</label>
+                <input class="form-control" pattern="^[a-zA-Z\s\.]*$" type="text" name="firstname" formControlName="firstname" placeholder="your first name">
+                <small class="warning-message" *ngIf="this.registrationForm.get('firstname')?.touched && this.registrationForm.get('firstname')?.invalid">Please enter a valid name</small>
+            </div>
+            <div class="half-div input-div">
+                <label class="input-label" for="lastname">Last Name</label>
+                <input class="form-control" pattern="^[a-zA-Z\s\.]*$" type="text" name="lastname" formControlName="lastname" placeholder="your last name">
+                <small class="warning-message" *ngIf="this.registrationForm.get('lastname')?.touched && this.registrationForm.get('lastname')?.invalid">Please enter a valid name</small>
+            </div>
+           
+            <div class="input-div">
+                <label class="input-label" for="phone">Contact Number</label>
+                <input class="form-control" type="text" pattern="^[0-9]{10}$" name="phone" formControlName="phone" placeholder="your contact number">
+                <small class="warning-message" *ngIf="this.registrationForm.get('phone')?.touched && this.registrationForm.get('phone')?.invalid">Please enter a valid mobile number</small>
+            </div>
+           
+            <div class="input-div">
+                <label class="input-label" for="email">Email Address</label>
+                <input class="form-control" type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" formControlName="email" placeholder="your email address">
+                <small class="warning-message" *ngIf="this.registrationForm.get('email')?.touched && this.registrationForm.get('email')?.invalid">Please enter a valid email address</small>
+            </div>
+            <div class="input-div input-pass">
+                <label class="input-label" for="password">Password</label>
+                <input class="form-control" [type]="showPassword?'text':'password'" maxlength="15"  pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" name="password" formControlName="password" placeholder="your password">
+                <i class="fa-regular toggle-btn" [ngClass]="showPassword?'fa-eye':'fa-eye-slash'" (click)="togglePassword()"></i>
+                <small class="warning-message" *ngIf="this.registrationForm.get('password')?.touched && this.registrationForm.get('password')?.invalid">Please enter a valid password</small>
+            </div>
+            <div class="input-div input-pass">
+                <label class="input-label" for="cpassword">Confirm Password</label>
+                <input class="form-control" [type]="showCPassword?'text':'password'" name="cpassword" formControlName="cpassword" placeholder="re-enter your password">
+                <i class="fa-regular toggle-btn" [ngClass]="showCPassword?'fa-eye':'fa-eye-slash'" (click)="toggleCPassword()"></i>
+                <small class="warning-message" *ngIf="this.registrationForm.get('cpassword')?.touched && (this.registrationForm.get('cpassword')?.invalid || this.registrationForm.value.cpassword!=this.registrationForm.value.password)">Password should match</small>
+            </div>
+          
+            <div class="btn-div">
+                <button type="submit" class="btn btn-submit">Submit <i class="fa-solid fa-circle-play"></i></button>
+            </div>
+        </form>
+    </div>
+</section>
